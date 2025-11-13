@@ -34,5 +34,7 @@ How to run a program:
 
 Open project folder > Open Main.java in src/main/java > "Run Java"
 To choose the edge to remove, write down its index to the mstEdges.get method in Main.java
+
+
 <img width="397" height="100" alt="image" src="https://github.com/user-attachments/assets/ee0f0188-b35b-47da-b7b2-ab91a92206f2" />
 
