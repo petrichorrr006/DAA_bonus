@@ -50,4 +50,29 @@ public class EdgeRemover {
 
         return components;
     }
+
+    public static Edge findReplacementEdge(Graph graph, List<Set<Integer>> components) {
+
+        if (components.size() != 2) {
+            System.out.println("Expected exactly two components, but found: " + components.size());
+            return null;
+        }
+        Set<Integer> compA = components.get(0);
+        Set<Integer> compB = components.get(1);
+        Edge bestEdge = null;
+        int minWeight = Integer.MAX_VALUE;
+
+        for (Edge e : graph.getEdges()) {
+            boolean connectsDifferent = 
+                (compA.contains(e.src) && compB.contains(e.dest)) ||
+                (compB.contains(e.src) && compA.contains(e.dest));
+
+            if (connectsDifferent && e.weight < minWeight) {
+                minWeight = e.weight;
+                bestEdge = e;
+            }
+        }
+
+        return bestEdge;
+    }
 }
