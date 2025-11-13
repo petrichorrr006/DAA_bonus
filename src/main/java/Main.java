@@ -21,5 +21,18 @@ public class Main {
         for (Edge e : mst) {
             System.out.println(e);
         }
+
+        Edge removed = mst.get(1);
+        System.out.println("\nRemoving edge: " + removed);
+
+        List<Edge> afterRemoval = EdgeRemover.removeEdge(mst, removed);
+
+        List<Set<Integer>> components = EdgeRemover.getComponents(afterRemoval, graph.vertices);
+
+        System.out.println("\nComponents after edge removal:");
+        int idx = 1;
+        for (Set<Integer> comp : components) {
+            System.out.println("Component " + idx++ + ": " + comp);
+        }
     }
 }
